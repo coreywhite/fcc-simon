@@ -39,3 +39,4 @@ https://s3.amazonaws.com/freecodecamp/simonSound4.mp3.
 
 ## Notes
 
+This project is developed using SASS / SCSS and requires a preprocessing step to build the CSS.
