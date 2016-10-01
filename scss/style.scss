@@ -1,0 +1,333 @@
+$lum-light: 80%;
+$lum-normal: 50%;
+$lum-dark: 30%;
+$lum-very-dark: 15%;
+$sat-normal: 85%;
+$sat-full: 100%;
+$sat-low: 40%;
+$hue-red: 0;
+$hue-yellow: 60;
+$hue-green: 120;
+$hue-blue: 240;
+$clr-red: hsl($hue-red, $sat-normal, $lum-normal);
+$clr-red-dark: hsl($hue-red, $sat-normal, $lum-dark);
+$clr-red-light: hsl($hue-red, $sat-normal, $lum-light);
+$clr-red-glow: hsla($hue-red, $sat-full, $lum-normal, .6);
+$clr-blue: hsl($hue-blue, $sat-normal, $lum-normal);
+$clr-blue-dark: hsl($hue-blue, $sat-normal, $lum-dark);
+$clr-blue-light: hsl($hue-blue, $sat-normal, $lum-light);
+$clr-yellow: hsl($hue-yellow, $sat-normal, $lum-normal);
+$clr-yellow-dark: hsl($hue-yellow, $sat-normal, $lum-dark);
+$clr-yellow-light: hsl($hue-yellow, $sat-normal, $lum-light);
+$clr-yellow-glow: hsla($hue-yellow, $sat-full, $lum-normal, .3);
+$clr-green: hsl($hue-green, $sat-normal, $lum-normal);
+$clr-green-dark: hsl($hue-green, $sat-normal, $lum-dark);
+$clr-green-light: hsl($hue-green, $sat-normal, $lum-light);
+$clr-silver: hsl($hue-blue, 0, $lum-light);
+$clr-frame: #033;
+$clr-controls: hsl(0, 0, 24%);
+$clr-controls-pattern: hsl(0, 0, 20%);
+$clr-controls-labels: hsl(0, 0, 10%);
+$clr-background: hsl(225, 5%, 50%);
+
+$small-size: 150px;
+$small-control-size: 100px;
+$small-frame-width: 10px;
+$small-simon-font-size: 24px;
+$small-button-size: 16px;
+$small-button-margin: 5px;
+$small-button-padding: 2px;
+$small-label-font-size: 8px;
+
+$medium-size: 225px;
+$medium-control-size: 125px;
+$medium-frame-width: 15px;
+$medium-simon-font-size: 36px;
+$medium-button-size: 20px;
+$medium-button-margin: 8px;
+$medium-button-padding: 3px;
+$medium-label-font-size: 10px;
+
+$large-size: 300px;
+$large-control-size: 150px;
+$large-frame-width: 20px;
+$large-simon-font-size: 48px;
+$large-button-size: 30px;
+$large-button-margin: 10px;
+$large-button-padding: 5px;
+$large-label-font-size: 12px;
+
+$bg-image: "https://googledrive.com/host/0B3pQCTIYWmsCLVNIUVp3SmNFTDA/wood-texture.png";
+
+
+
+html {
+  box-sizing: border-box;
+  background: url($bg-image);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#simon {
+  height: 2 * $small-size;
+  width: 2 * $small-size;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 2px rgba(0, 0, 0, .5);
+  background-color: $clr-frame;
+}
+
+.simon-row {
+  height: $small-size;
+  width: 2 * $small-size;
+  display: flex;
+}
+
+.simon-quadrant {
+  width: $small-size;
+  height: $small-size;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: $small-frame-width solid $clr-frame;
+  opacity: .8;
+}
+
+.top .left {
+  background-color: $clr-green;
+  border-top-left-radius: 100%;
+  background: radial-gradient( circle at bottom right, $clr-green-dark, $clr-green 60%, $clr-green-light 90%);
+  box-shadow: inset 0 0 10px 0px rgba(0, 0, 0, .8);
+}
+
+.top .right {
+  background-color: $clr-red;
+  border-top-right-radius: 100%;
+  background: radial-gradient( circle at bottom left, $clr-red-dark, $clr-red 60%, $clr-red-light 90%);
+  box-shadow: inset 0 0 10px 0px rgba(0, 0, 0, .8);
+}
+
+.bottom .left {
+  background-color: $clr-yellow;
+  border-bottom-left-radius: 100%;
+  background: radial-gradient( circle at top right, $clr-yellow-dark, $clr-yellow 60%, $clr-yellow-light 90%);
+  box-shadow: inset 0 0 10px 0px rgba(0, 0, 0, .8);
+}
+
+.bottom .right {
+  background-color: $clr-blue;
+  border-bottom-right-radius: 100%;
+  background: radial-gradient( circle at top left, $clr-blue-dark, $clr-blue 60%, $clr-blue-light 90%);
+  box-shadow: inset 0 0 10px 0px rgba(0, 0, 0, .8);
+}
+
+#simon-controls {
+  width: $small-size + 2 *$small-frame-width;
+  height: $small-size + 2 * $small-frame-width;
+  background-color: $clr-controls;
+  position: absolute;
+  border-radius: 50%;
+  border: 2 * $small-frame-width solid $clr-frame;
+  top: $small-size / 2 - $small-frame-width;
+  left: $small-size / 2 - $small-frame-width;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: inset 0 0 10px 0px rgba(0, 0, 0, .8);
+  background-image: linear-gradient(45deg, $clr-controls-pattern 25%, transparent 25%, transparent), linear-gradient(-45deg, $clr-controls-pattern 25%, transparent 25%, transparent), linear-gradient(45deg, transparent 75%, $clr-controls-pattern 75%), linear-gradient(-45deg, transparent 75%, $clr-controls-pattern 75%);
+  background-size: 5px 5px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.controls-row.top {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  align-items: flex-end;
+  h2 {
+    font-family: 'Krona One', sans-serif;
+    font-size: $small-simon-font-size;
+    letter-spacing: -.1em;
+    color: $clr-silver;
+    margin: 0 auto 10% auto;
+  }
+}
+
+.controls-row.bottom {
+  display: flex;  
+  height: 45%;
+  width: 100%;
+  padding: 4*$small-button-padding 8*$small-button-padding;
+  background-color: $clr-frame;
+  box-shadow: inset 0 5px 5px -5px hsla(0, 0, 0%, .8);
+  .control-display {
+    flex: 1;
+    #led {
+      height: $small-button-size;
+      width: $small-button-size + $small-button-margin;
+      color: $clr-red;
+      background-color: hsl($hue-green, $sat-low, $lum-very-dark);
+      border-radius: 3px;
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 1), inset 0 0 5px rgba(0, 0, 0, .8);
+      margin: 0 auto;
+      line-height: $small-button-size - 2px;
+      font-family: 'VT323', digital;
+      font-size: $small-button-size;
+      padding-left: $small-button-padding;
+      letter-spacing: 4px;
+      margin-bottom: $small-button-margin;
+    }
+  }
+  .control-button {
+    flex: 1;
+    button {
+      width: $small-button-size;
+      height: $small-button-size;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 1), inset 0px 2px 3px rgba(255, 255, 255, .4);
+      margin-bottom: $small-button-margin;
+      outline: none;
+    }
+  }
+  label {
+    display: block;
+    color: $clr-silver;
+    font-family: 'Krona One', sans-serif;
+    font-size: $small-label-font-size;
+  }
+}
+
+#start {
+  background-color: $clr-red-dark;
+}
+#start.active {
+  background-color: $clr-red;
+    background-image: radial-gradient(circle, $clr-red-light, $clr-red 80%, $clr-red-dark 90%);
+  box-shadow: 0px 0px 8px 2px $clr-red-glow;
+}
+
+#strict {
+  background-color: $clr-yellow-dark;
+}
+#strict.active {
+  background-color: $clr-yellow;
+  background-image: radial-gradient(circle, $clr-yellow-light, $clr-yellow 50%, $clr-yellow-dark 90%);
+  box-shadow: 0px 0px 8px 2px $clr-yellow-glow;
+}
+
+/*On medium screens, scale up*/
+@media all and (min-width: 2*$medium-size + 2*$medium-frame-width) and (min-height: 2*$medium-size + 2*$medium-frame-width) {
+  #simon {
+    height: 2 * $medium-size;
+    width: 2 * $medium-size;
+  }
+  .simon-row {
+    height: $medium-size;
+    width: 2 * $medium-size;
+  }
+  .simon-quadrant {
+    width: $medium-size;
+    height: $medium-size;
+    border: $medium-frame-width solid $clr-frame;
+  }
+  #simon-controls {
+    width: $medium-size + 2 *$medium-frame-width;
+    height: $medium-size + 2 * $medium-frame-width;
+    border: 2 * $medium-frame-width solid $clr-frame;
+    top: $medium-size / 2 - $medium-frame-width;
+    left: $medium-size / 2 - $medium-frame-width;
+  }
+  .controls-row.top {
+    h2 {
+      font-size: $medium-simon-font-size;
+    }
+  }
+  .controls-row.bottom {
+    padding: 4*$medium-button-padding 8*$medium-button-padding;
+    .control-display {
+      #led {
+        height: $medium-button-size;
+        width: $medium-button-size + $medium-button-margin;
+        line-height: $medium-button-size - 2px;
+        font-size: $medium-button-size;
+        padding-left: $medium-button-padding;
+        margin-bottom: $medium-button-margin;
+      }
+    }
+    .control-button {
+      button {
+        width: $medium-button-size;
+        height: $medium-button-size;
+        margin-bottom: $medium-button-margin;
+      }
+    }
+    label {
+      font-size: $medium-label-font-size;
+    }
+  }
+}
+
+/*On large screens, scale up*/
+@media all and (min-width: 2*$large-size + 2*$large-frame-width) and (min-height: 2*$large-size + 2*$large-frame-width) {
+  #simon {
+    height: 2 * $large-size;
+    width: 2 * $large-size;
+  }
+  .simon-row {
+    height: $large-size;
+    width: 2 * $large-size;
+  }
+  .simon-quadrant {
+    width: $large-size;
+    height: $large-size;
+    border: $large-frame-width solid $clr-frame;
+  }
+  #simon-controls {
+    width: $large-size + 2 *$large-frame-width;
+    height: $large-size + 2 * $large-frame-width;
+    border: 2 * $large-frame-width solid $clr-frame;
+    top: $large-size / 2 - $large-frame-width;
+    left: $large-size / 2 - $large-frame-width;
+  }
+  .controls-row.top {
+    h2 {
+      font-size: $large-simon-font-size;
+    }
+  }
+  .controls-row.bottom {
+    padding: 4*$large-button-padding 8*$large-button-padding;
+    .control-display {
+      #led {
+        height: $large-button-size;
+        width: $large-button-size + $large-button-margin;
+        line-height: $large-button-size - 2px;
+        font-size: $large-button-size;
+        padding-left: $large-button-padding;
+        margin-bottom: $large-button-margin;
+      }
+    }
+    .control-button {
+      button {
+        width: $large-button-size;
+        height: $large-button-size;
+        margin-bottom: $large-button-margin;
+      }
+    }
+    label {
+      font-size: $large-label-font-size;
+    }
+  }
+}
