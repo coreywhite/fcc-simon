@@ -1,68 +1,48 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>FCC Challenge - Build a Simon Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href='https://fonts.googleapis.com/css?family=Krona+One|VT323' rel='stylesheet' type='text/css'>
-
-    
-    <link rel="stylesheet" href="css/normalize.css">
-
-    
-        <link rel="stylesheet" href="css/style.css">
-
-    
-    
-    
-    
-  </head>
-
-  <body>
-
-    <div id="container">
-  <div id="simon">
-    <div class="simon-row top">
-      <div class="simon-quadrant left" id="green"></div>
-      <div class="simon-quadrant right" id="red"></div>
-    </div>
-    <div class="simon-row bottom">
-      <div class="simon-quadrant left" id="yellow"></div>
-      <div class="simon-quadrant right" id="blue"></div>
-    </div>
-    
-    
-    
-    
-    
-    <div id="simon-controls">
-      <div class="controls-row top">
-        <h2>Simon</h2>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FCC Challenge - Build a Simon Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Krona+One|VT323' rel='stylesheet' type='text/css'>  
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="simon">
+      <div class="simon-row top">
+        <div class="simon-quadrant left" id="green"></div>
+        <div class="simon-quadrant right" id="red"></div>
       </div>
-      <div class="controls-row bottom">
-        <div class="control-display">
-          <div id="led"></div>
-          <label>Count</label>
+      <div class="simon-row bottom">
+        <div class="simon-quadrant left" id="yellow"></div>
+        <div class="simon-quadrant right" id="blue"></div>
+      </div>
+      <div id="simon-controls">
+        <div class="controls-row top">
+          <h2>Simon</h2>
         </div>
-        <div class="control-button">
-          <button id="start"></button>
-          <label>Start</label>
-        </div>
-        <div class="control-button">
-          <button id="strict"></button>
-          <label>Strict</label>
+        <div class="controls-row bottom">
+          <div class="control-display">
+            <div id="led"></div>
+            <label>Count</label>
+          </div>
+          <div class="control-button">
+            <button id="start"></button>
+            <label>Start</label>
+          </div>
+          <div class="control-button">
+            <button id="strict"></button>
+            <label>Strict</label>
+          </div>
         </div>
       </div>
     </div>
+    <div id="message"></div>
   </div>
-  <div id="message"></div>
-</div>
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js'></script>
-
-        <script src="js/index.js"></script>
-
-    
-    
-  </body>
+  
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</body>
 </html>
